@@ -7,19 +7,19 @@ import java.util.function.Predicate;
 
 public interface ComposableList<T> extends Iterable<T> {
 
-    public <R> ComposableList<R> map(Function<T, R> projectionFunction);
+  public <R> ComposableList<R> map(Function<T, R> projectionFunction);
 
-    public ComposableList<T> filter(Predicate<T> predicateFunction);
+  public ComposableList<T> filter(Predicate<T> predicateFunction);
 
-    public <R> ComposableList<R> concatMap(Function<T, ComposableList<R>> projectionFunctionThatReturnsList);
+  public <R> ComposableList<R> concatMap(Function<T, ComposableList<R>> projectionFunctionThatReturnsList);
 
-    public ComposableList<T> reduce(BiFunction<T, T, T> combiner);
+  public ComposableList<T> reduce(BiFunction<T, T, T> combiner);
 
-    public <R> ComposableList<R> reduce(R initialValue, BiFunction<R, T, R> combiner);
+  public <R> ComposableList<R> reduce(R initialValue, BiFunction<R, T, R> combiner);
 
-    public int size();
+  public int size();
 
-    public void forEach(Consumer<? super T> action);
+  public void forEach(Consumer<? super T> action);
 
-    public T get(int index);
+  public T get(int index);
 }

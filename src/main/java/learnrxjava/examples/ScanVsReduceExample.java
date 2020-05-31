@@ -1,22 +1,22 @@
 package learnrxjava.examples;
 
-import java.util.ArrayList;
+import io.reactivex.rxjava3.core.Observable;
 
-import rx.Observable;
+import java.util.ArrayList;
 
 public class ScanVsReduceExample {
 
-    public static void main(String... args) {
-        Observable.range(0, 10).reduce(new ArrayList<>(), (list, i) -> {
-            list.add(i);
-            return list;
-        }).forEach(System.out::println);
+  public static void main(String... args) {
+    Observable.range(0, 10).reduce(new ArrayList<>(), (list, i) -> {
+      list.add(i);
+      return list;
+    }).forEach(System.out::println);
 
-        System.out.println("... vs ...");
+    System.out.println("... vs ...");
 
-        Observable.range(0, 10).scan(new ArrayList<>(), (list, i) -> {
-            list.add(i);
-            return list;
-        }).forEach(System.out::println);
-    }
+    Observable.range(0, 10).scan(new ArrayList<>(), (list, i) -> {
+      list.add(i);
+      return list;
+    }).forEach(System.out::println);
+  }
 }

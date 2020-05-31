@@ -1,4 +1,7 @@
-apply plugin: "java"
+plugins {
+  id 'java'
+  id 'idea'
+}
 
 group = "io.reactivex"
 version = "1.0-SNAPSHOT"
@@ -7,10 +10,17 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-    jcenter()
+  jcenter()
 }
 
 dependencies {
-    compile "io.reactivex:rxjava:1.0.0-rc.10"
-    testCompile "junit:junit:4.11"
+  implementation 'io.reactivex.rxjava3:rxjava:3.0.4'
+  testImplementation 'org.junit.jupiter:junit-jupiter:5.6.2'
+}
+
+test {
+  useJUnitPlatform()
+  testLogging {
+    events 'passed', 'skipped', 'failed'
+  }
 }
